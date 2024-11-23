@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "User Diagram",
+    "attributes": ["UserID", "Username", "Email", "Password"],
+    "methods": ["Register()", "Login()", "Logout()"],
+    "classNames": ["User", "Profile", "Authentication"]
+  },
+  {
+    "id": 2,
+    "name": "Order Diagram",
+    "attributes": ["OrderID", "CustomerID", "TotalAmount", "OrderDate"],
+    "methods": ["CreateOrder()", "CancelOrder()", "TrackOrder()"],
+    "classNames": ["Order", "Customer", "Invoice"]
+  },
+  {
+    "id": 3,
+    "name": "Product Diagram",
+    "attributes": ["ProductID", "Name", "Price", "Stock"],
+    "methods": ["AddProduct()", "UpdateProduct()", "DeleteProduct()"],
+    "classNames": ["Product", "Category", "Supplier"]
+  }
+]

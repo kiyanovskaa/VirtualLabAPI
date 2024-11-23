@@ -1,0 +1,35 @@
+[
+  {
+    "Id": 1,
+    "Name": "Complete Assignment",
+    "Description": "Finish the programming assignment for the Software Engineering course.",
+    "isDone": false,
+    "Deadline": "2024-12-01T23:59:00",
+    "DurationTime": 120,
+    "Grade": 0,
+    "MaxGrade": 100,
+    "StudentId": 1
+  },
+  {
+    "Id": 2,
+    "Name": "Prepare Presentation",
+    "Description": "Create slides for the project presentation on AI-based systems.",
+    "isDone": true,
+    "Deadline": "2024-11-20T17:00:00",
+    "DurationTime": 60,
+    "Grade": 85,
+    "MaxGrade": 100,
+    "StudentId": 2
+  },
+  {
+    "Id": 3,
+    "Name": "Submit Lab Report",
+    "Description": "Write and submit the lab report for the Data Structures course.",
+    "isDone": false,
+    "Deadline": "2024-11-30T20:00:00",
+    "DurationTime": 90,
+    "Grade": 0,
+    "MaxGrade": 50,
+    "StudentId": 3
+  }
+]

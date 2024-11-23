@@ -1,0 +1,119 @@
+[
+  {
+    "Id": 1,
+    "classes": [
+      {
+        "Name": "Customer",
+        "attributes": ["Id", "Name", "Email", "PhoneNumber"],
+        "methods": ["Register", "Login", "Logout"],
+        "relatedClasses": [{"Order": "HasMany"}]
+      },
+      {
+        "Name": "Order",
+        "attributes": ["Id", "OrderDate", "TotalAmount"],
+        "methods": ["PlaceOrder", "CancelOrder"],
+        "relatedClasses": [{"Customer": "BelongsTo"}, {"Product": "HasMany"}]
+      },
+      {
+        "Name": "Product",
+        "attributes": ["Id", "Name", "Price", "Stock"],
+        "methods": ["AddProduct", "UpdateStock", "RemoveProduct"],
+        "relatedClasses": [{"Order": "HasMany"}]
+      },
+      {
+        "Name": "Category",
+        "attributes": ["Id", "Name"],
+        "methods": ["AddCategory", "RemoveCategory"],
+        "relatedClasses": [{"Product": "HasMany"}]
+      },
+      {
+        "Name": "Supplier",
+        "attributes": ["Id", "Name", "Contact"],
+        "methods": ["AddSupplier", "RemoveSupplier"],
+        "relatedClasses": [{"Product": "Supplies"}]
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "classes": [
+      {
+        "Name": "Student",
+        "attributes": ["Id", "Name", "Email", "Age"],
+        "methods": ["Enroll", "DropCourse"],
+        "relatedClasses": [{"Course": "EnrolledIn"}]
+      },
+      {
+        "Name": "Course",
+        "attributes": ["Id", "Name", "Credits"],
+        "methods": ["AddCourse", "RemoveCourse"],
+        "relatedClasses": [{"Student": "HasMany"}, {"Instructor": "TaughtBy"}]
+      },
+      {
+        "Name": "Instructor",
+        "attributes": ["Id", "Name", "Email", "Specialization"],
+        "methods": ["AssignCourse", "GradeStudent"],
+        "relatedClasses": [{"Course": "HasMany"}]
+      },
+      {
+        "Name": "Department",
+        "attributes": ["Id", "Name"],
+        "methods": ["AddDepartment", "UpdateDepartment"],
+        "relatedClasses": [{"Course": "Offers"}]
+      },
+      {
+        "Name": "Library",
+        "attributes": ["Id", "Name", "Location"],
+        "methods": ["IssueBook", "ReturnBook"],
+        "relatedClasses": [{"Student": "Uses"}]
+      },
+      {
+        "Name": "Book",
+        "attributes": ["Id", "Title", "Author"],
+        "methods": ["AddBook", "RemoveBook"],
+        "relatedClasses": [{"Library": "BelongsTo"}]
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "classes": [
+      {
+        "Name": "Patient",
+        "attributes": ["Id", "Name", "Age", "MedicalHistory"],
+        "methods": ["Admit", "Discharge"],
+        "relatedClasses": [{"Doctor": "AssignedTo"}]
+      },
+      {
+        "Name": "Doctor",
+        "attributes": ["Id", "Name", "Specialization"],
+        "methods": ["Diagnose", "Prescribe"],
+        "relatedClasses": [{"Patient": "HasMany"}]
+      },
+      {
+        "Name": "Nurse",
+        "attributes": ["Id", "Name", "Shift"],
+        "methods": ["AssistDoctor", "CareForPatient"],
+        "relatedClasses": [{"Patient": "CaresFor"}]
+      },
+      {
+        "Name": "Room",
+        "attributes": ["Id", "RoomNumber", "Type"],
+        "methods": ["Allocate", "Deallocate"],
+        "relatedClasses": [{"Patient": "OccupiedBy"}]
+      },
+      {
+        "Name": "Appointment",
+        "attributes": ["Id", "PatientId", "DoctorId", "Date"],
+        "methods": ["Schedule", "Cancel"],
+        "relatedClasses": [{"Patient": "BelongsTo"}, {"Doctor": "BelongsTo"}]
+      },
+      {
+        "Name": "Medicine",
+        "attributes": ["Id", "Name", "Dosage"],
+        "methods": ["Prescribe", "Dispense"],
+        "relatedClasses": [{"Patient": "GivenTo"}]
+      }
+    ]
+  }
+]
