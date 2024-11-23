@@ -3,10 +3,10 @@
     "Id": 1,
     "Name": "Complete Assignment",
     "Description": "Finish the programming assignment for the Software Engineering course.",
-    "isDone": true,
+    "isDone": false,
     "Deadline": "2024-12-01T23:59:00",
     "DurationTime": 120,
-    "Grade": 73,
+    "Grade": 0,
     "MaxGrade": 100,
     "StudentId": 1
   },
