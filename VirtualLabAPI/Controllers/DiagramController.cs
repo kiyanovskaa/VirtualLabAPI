@@ -20,16 +20,9 @@ namespace VirtualLabAPI.Controllers
 
             try
             {
-               bool istrue= GradingHandler.Evaluate(diagram.classes, diagram.Id);
+               int istrue= GradingHandler.Evaluate(diagram.classes, diagram.Id);
 
-                if (istrue)
-                {
-                    return Ok("Diagram successfully added.");
-                }
-                else
-                {
-                    return BadRequest();    
-                } 
+                return Ok(istrue);
             }
             catch (JsonException)
             {
