@@ -5,6 +5,12 @@ namespace VirtualLabAPI.Handler
 {
     static public class FileHandler<T>
     {
+        public static void WriteToFile<T>(List<T> data, string filePath)
+        {
+            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePath, json);
+        }
+
         static public List<T> ReadFromFile(string path)
         {
 

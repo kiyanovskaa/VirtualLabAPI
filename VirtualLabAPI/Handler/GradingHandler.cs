@@ -1,16 +1,41 @@
 ﻿using System.Text.Json;
 using VirtualLabAPI.Models;
 using Newtonsoft.Json;
+using VirtualLabAPI.Controllers;
 
 namespace VirtualLabAPI.Handler
 {
-    static public class GradingHandler
+     public class GradingHandler : IGradingHandler
     {
         private const string FilePath = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Diagrams.txt";
+        private const string FilePath2 = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Tasks.txt";
         static public int Evaluate(List<Class> studentClasses, int id)
+        {
+            return 0;
+
+        }
+
+
+        public static int CalculateStudentGrade(int Errornum , int diagramId, int num) 
+        {
+
+            List<Assignement> tasks = FileHandler<Assignement>.ReadFromFile(FilePath2);
+            var task = tasks?.Find(t => t.Id == diagramId);
+            //
+            int maxGrade = task.MaxGrade;
+            int per = maxGrade / num;
+            int result = maxGrade - per * Errornum;
+            Console.WriteLine(result);
+            return result;
+        }
+
+        public int Update(Diagram diagFromStudent)
         {
             try
             {
+
+                List<Class> studentClasses = diagFromStudent.classes;
+                int id = diagFromStudent.Id;
                 List<Diagram> diagrams = FileHandler<Diagram>.ReadFromFile(FilePath);
                 if (diagrams == null)
                 {
@@ -27,11 +52,15 @@ namespace VirtualLabAPI.Handler
                     return 0;
                 }
 
+
                 // Отримуємо список класів з цієї діаграми
                 var classes = diagram.classes;
                 int Errors = 0;
+                int num = 0;
                 foreach (var cl in classes)
                 {
+                    num += cl.relatedClasses.Count + 1;
+
                     var foundClassStudent = studentClasses.FirstOrDefault(c => c.Name == cl.Name);
 
                     // Перевіряємо, чи знайдено об'єкт
@@ -44,12 +73,12 @@ namespace VirtualLabAPI.Handler
                             // Дії, якщо хоч одне з полів відрізняється
                             Errors++;
                         }
-                       
+
                         for (int i = 0; i < cl.relatedClasses.Count; i++)
                         {
                             if (i >= foundClassStudent.relatedClasses.Count) //буде додавати 1 за кожен відсутній relatedclass в студентському блочку
                             {
-                                Errors ++; // Відсутній словник
+                                Errors++; // Відсутній словник
                                 continue;
                             }
                             //if (cl.relatedClasses.Count != foundClassStudent.relatedClasses.Count)
@@ -75,16 +104,8 @@ namespace VirtualLabAPI.Handler
                                 }
                             }
 
-                            // Перевіряємо, чи у словнику 2 є додаткові ключі
-                            //foreach (var kvp2 in dict2)
-                            //{
-                            //    if (!dict1.ContainsKey(kvp2.Key))
-                            //    {
-                            //        Errors++; // Додатковий ключ у словнику 2
-                            //    }
-                            //}
                         }
-                        if(cl.relatedClasses.Count< foundClassStudent.relatedClasses.Count)
+                        if (cl.relatedClasses.Count < foundClassStudent.relatedClasses.Count)
                         {
                             Errors += (foundClassStudent.relatedClasses.Count - cl.relatedClasses.Count);
                         }
@@ -92,25 +113,20 @@ namespace VirtualLabAPI.Handler
                     }
                     else
                     {
-                        return 100;
+                        Errors += 2;
                         //----
                     }
                 }
 
-                return Errors;
-
-
-                // Логіка оцінювання (замість цього можете додати свою перевірку)
-                Console.WriteLine($"Found {classes.Count} classes in diagram with ID {id}.");
-                return 0;
+                int res= CalculateStudentGrade(Errors, diagram.Id, num);
+                TaskHandler.UpdateTask(res, diagram.Id);
+                return res;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error while reading or processing the file: {ex.Message}");
                 return 0;
             }
-
         }
-
     }
 }

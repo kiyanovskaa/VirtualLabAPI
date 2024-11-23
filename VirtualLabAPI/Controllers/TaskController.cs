@@ -12,7 +12,7 @@ namespace VirtualLabAPI.Controllers
         private const string FilePath = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Tasks.txt"; // Шлях до файлу з даними
 
         // Метод для отримання задачі за ID
-        [HttpGet("{id}")]
+        [HttpGet("byId/{id}")]
         public ActionResult<Assignement> GetById(int id)
         {
             try
@@ -41,7 +41,7 @@ namespace VirtualLabAPI.Controllers
             }
         }
 
-        [HttpGet("{studentId}")]
+        [HttpGet("byStudentId/{studentId}")]
         public ActionResult<Assignement> GetByStudentId(int studentId)
         {
             try

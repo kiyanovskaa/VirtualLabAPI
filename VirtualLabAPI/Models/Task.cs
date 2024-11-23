@@ -10,6 +10,7 @@ namespace VirtualLabAPI.Models
         public bool isDone { get; set; }
         public DateTime Deadline {  get; set; }
         public int DurationTime { get; set; }
+        public int Grade { get; set; }
 
         public int MaxGrade {  get; set; }
         public int StudentId { get; set; }
