@@ -6,7 +6,7 @@ namespace VirtualLabAPI.Handler
 {
     public class TaskHandler
     {
-        private const string FilePath2 = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Tasks.txt";
+        private static readonly string FilePath2 = Path.Combine(Directory.GetCurrentDirectory(), "Source", "Tasks.txt");
 
         static public void UpdateTask(int Grade, int TaskId)
         {

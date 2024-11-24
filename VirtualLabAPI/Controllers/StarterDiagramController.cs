@@ -9,7 +9,7 @@ namespace VirtualLabAPI.Controllers
     [Route("api/[controller]")]
     public class StarterDiagramController : Controller
     {
-        private const string FilePath = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\StarterDiagrams.txt"; // Шлях до файлу з JSON
+        private static readonly string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "Source", "StarterDiagrams.txt"); // Шлях до файлу з JSON
 
 
         [HttpGet("{id}")]

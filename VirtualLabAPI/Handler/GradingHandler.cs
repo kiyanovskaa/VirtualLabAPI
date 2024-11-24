@@ -7,8 +7,8 @@ namespace VirtualLabAPI.Handler
 {
     public class GradingHandler : IGradingHandler
     {
-        private const string FilePath = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Diagrams.txt";
-        private const string FilePath2 = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Tasks.txt";
+        private static readonly string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "Source", "Diagrams.txt");
+        private static readonly string FilePath2 = Path.Combine(Directory.GetCurrentDirectory(), "Source", "Tasks.txt");
         static public int Evaluate(List<Class> studentClasses, int id)
         {
             return 0;

@@ -9,7 +9,7 @@ namespace VirtualLabAPI.Controllers
     [Route("api/[controller]")]
     public class TaskController : Controller
     {
-        private const string FilePath = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Tasks.txt"; // Шлях до файлу з даними
+        private static readonly string FilePath = Path.Combine(Directory.GetCurrentDirectory(), "Source", "Tasks.txt"); // Шлях до файлу з даними
 
         // Метод для отримання задачі за ID
         [HttpGet("byId/{id}")]
