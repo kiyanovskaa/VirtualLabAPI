@@ -37,5 +37,7 @@ namespace VirtualLabAPI.Models
         public int Grade {  get; set; }
         public int MaxGrade {  get; set; }
         public int StudentId { get; set; }
+        public string Comment { get; set; }
+        public int diagtamId { get; set; }
     }
 }
