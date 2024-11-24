@@ -14,7 +14,7 @@
     "Id": 2,
     "Name": "Prepare Presentation",
     "Description": "Create slides for the project presentation on AI-based systems.",
-    "isDone": true,
+    "isDone": false,
     "Deadline": "2024-11-20T17:00:00",
     "DurationTime": 60,
     "Grade": 85,
