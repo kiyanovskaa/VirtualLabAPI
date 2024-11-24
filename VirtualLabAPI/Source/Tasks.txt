@@ -8,7 +8,9 @@
     "DurationTime": 120,
     "Grade": 82,
     "MaxGrade": 100,
-    "StudentId": 1
+    "StudentId": 1,
+    "Comment": "",
+    "diagtamId": 1
   },
   {
     "Id": 2,
@@ -19,7 +21,9 @@
     "DurationTime": 60,
     "Grade": 85,
     "MaxGrade": 100,
-    "StudentId": 2
+    "StudentId": 2,
+     "Comment": "",
+    "diagtamId": 2
   },
   {
     "Id": 3,
@@ -30,6 +34,8 @@
     "DurationTime": 90,
     "Grade": 0,
     "MaxGrade": 50,
-    "StudentId": 3
+    "StudentId": 3,
+     "Comment": "",
+    "diagtamId": 3
   }
 ]
