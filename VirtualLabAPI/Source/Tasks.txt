@@ -10,7 +10,7 @@
     "MaxGrade": 100,
     "StudentId": 1,
     "Comment": "",
-    "diagtamId": 1
+    "diagramId": 1
   },
   {
     "Id": 2,
@@ -23,7 +23,7 @@
     "MaxGrade": 100,
     "StudentId": 2,
      "Comment": "",
-    "diagtamId": 2
+    "diagramId": 2
   },
   {
     "Id": 3,
@@ -36,6 +36,33 @@
     "MaxGrade": 50,
     "StudentId": 3,
      "Comment": "",
-    "diagtamId": 3
+    "diagramId": 3
+  },
+  {
+    "Id": 4,
+    "Name": "Submit Report",
+    "Description": "Write and submit the lab report for the Data Structures course.",
+    "isDone": true,
+    "Deadline": "2024-11-30T20:00:00",
+    "DurationTime": 90,
+    "Grade": 20,
+    "MaxGrade": 50,
+    "StudentId": 3,
+     "Comment": "",
+    "diagramId": 4
+  },
+  {
+    "Id": 5,
+    "Name": "Lab Report",
+    "Description": "Write and submit the lab report for the Data Structures course.",
+    "isDone": false,
+    "Deadline": "2024-11-30T20:00:00",
+    "DurationTime": 90,
+    "Grade": 0,
+    "MaxGrade": 50,
+    "StudentId": 3,
+     "Comment": "",
+    "diagramId": 5
   }
+
 ]
