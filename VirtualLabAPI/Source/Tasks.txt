@@ -19,7 +19,7 @@
     "DurationTime": 60,
     "Grade": 85,
     "MaxGrade": 100,
-    "StudentId": 2
+    "StudentId": 1
   },
   {
     "Id": 3,
@@ -30,6 +30,6 @@
     "DurationTime": 90,
     "Grade": 0,
     "MaxGrade": 50,
-    "StudentId": 3
+    "StudentId": 1
   }
 ]
