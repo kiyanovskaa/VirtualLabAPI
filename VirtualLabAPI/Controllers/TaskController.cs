@@ -57,7 +57,7 @@ namespace VirtualLabAPI.Controllers
                 }
 
                 List<Assignement> tasks = FileHandler<Assignement>.ReadFromFile(FilePath);
-                var task = tasks?.FirstOrDefault(t => t.StudentId == studentId);
+                var task = tasks?.Where(t => t.StudentId == studentId);
 
                 if (task == null)
                 {
