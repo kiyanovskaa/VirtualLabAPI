@@ -13,7 +13,7 @@ namespace VirtualLabAPI.Models
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("");
+                    throw new ArgumentException("Id can not be negative");
                 }
                 _id = value;
             }

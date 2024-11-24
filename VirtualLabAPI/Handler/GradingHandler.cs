@@ -5,7 +5,7 @@ using VirtualLabAPI.Controllers;
 
 namespace VirtualLabAPI.Handler
 {
-     public class GradingHandler : IGradingHandler
+    public class GradingHandler : IGradingHandler
     {
         private const string FilePath = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Diagrams.txt";
         private const string FilePath2 = "E:\\pz4_1\\VirtualLabWebApi\\VirtualLabAPI\\VirtualLabAPI\\Source\\Tasks.txt";
@@ -16,7 +16,7 @@ namespace VirtualLabAPI.Handler
         }
 
 
-        public static int CalculateStudentGrade(int Errornum , int diagramId, int num) 
+        public static int CalculateStudentGrade(int Errornum, int diagramId, int num)
         {
 
             List<Assignement> tasks = FileHandler<Assignement>.ReadFromFile(FilePath2);
@@ -62,7 +62,6 @@ namespace VirtualLabAPI.Handler
                     num += cl.relatedClasses.Count + 1;
 
                     var foundClassStudent = studentClasses.FirstOrDefault(c => c.Name == cl.Name);
-
 
                     // Перевіряємо, чи знайдено об'єкт
                     if (foundClassStudent != null)
@@ -117,11 +116,9 @@ namespace VirtualLabAPI.Handler
                         Errors += 2;
                         //----
                     }
-                    return true;
-
                 }
 
-                int res= CalculateStudentGrade(Errors, diagram.Id, num);
+                int res = CalculateStudentGrade(Errors, diagram.Id, num);
                 TaskHandler.UpdateTask(res, diagram.Id);
                 return res;
             }
