@@ -3,7 +3,7 @@ using VirtualLabAPI.Models;
 
 namespace VirtualLabAPI.Handler
 {
-    static public class FileHandler<T>
+    public class FileHandler<T>
     {
         static public List<T> ReadFromFile(string path)
         {
@@ -15,13 +15,9 @@ namespace VirtualLabAPI.Handler
 
             try
             {
-                // Зчитуємо JSON з файлу
                 var json = System.IO.File.ReadAllText(path);
 
-                // Десеріалізуємо JSON у список StarterDiagram
                 var items = JsonSerializer.Deserialize<List<T>>(json);
-
-                // Знаходимо діаграму за ID
                
 
                 return items;
