@@ -78,42 +78,29 @@
   {
     "Id": 3,
     "classes": [
-      {
-        "Name": "Patient",
-        "attributes": ["Id", "Name", "Age", "MedicalHistory"],
-        "methods": ["Admit", "Discharge"],
-        "relatedClasses": [{"Doctor": "AssignedTo"}]
-      },
-      {
-        "Name": "Doctor",
-        "attributes": ["Id", "Name", "Specialization"],
-        "methods": ["Diagnose", "Prescribe"],
-        "relatedClasses": [{"Patient": "HasMany"}]
-      },
-      {
-        "Name": "Nurse",
-        "attributes": ["Id", "Name", "Shift"],
-        "methods": ["AssistDoctor", "CareForPatient"],
-        "relatedClasses": [{"Patient": "CaresFor"}]
-      },
-      {
-        "Name": "Room",
-        "attributes": ["Id", "RoomNumber", "Type"],
-        "methods": ["Allocate", "Deallocate"],
-        "relatedClasses": [{"Patient": "OccupiedBy"}]
-      },
-      {
-        "Name": "Appointment",
-        "attributes": ["Id", "PatientId", "DoctorId", "Date"],
-        "methods": ["Schedule", "Cancel"],
-        "relatedClasses": [{"Patient": "BelongsTo"}, {"Doctor": "BelongsTo"}]
-      },
-      {
-        "Name": "Medicine",
-        "attributes": ["Id", "Name", "Dosage"],
-        "methods": ["Prescribe", "Dispense"],
-        "relatedClasses": [{"Patient": "GivenTo"}]
-      }
-    ]
+       {
+      "Name": "Product",
+      "attributes": ["ProductID", "Name", "Price", "Stock"],
+      "methods": ["AddProduct()", "UpdateProduct()", "DeleteProduct()"],
+      "relatedClasses": []
+    },
+    {
+      "Name": "Category",
+      "attributes": [],
+      "methods": [],
+      "relatedClasses": [
+        {
+          "Product": "Composition"
+        }
+      ]
+    },
+    {
+      "Name": "Supplier",
+      "attributes": [],
+      "methods": [],
+      "relatedClasses": [{ "Product": "Supplies"}]
+    }
+   ]
+
   }
 ]
