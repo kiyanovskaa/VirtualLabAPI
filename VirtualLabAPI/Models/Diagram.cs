@@ -6,6 +6,10 @@ namespace VirtualLabAPI.Models
     {
         public int Id { get; set; }
         public List<Class> classes { get; set; }
-     
+        public Diagram()
+        {
+            classes = new List<Class>();
+        }
+
     }
 }
