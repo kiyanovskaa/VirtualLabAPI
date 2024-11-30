@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Username": "usernameone",
+    "Email": "user1@gmail.com",
+    "PasswordHash": "ZehL4zUy+3hMSBKWdfnv86aCsnFowOp0Syz1juAjN8U=",
+    "Role": "student",
+    "FirstName": "illa",
+    "LastName": "pussy"	
+  },
+  {
+        "Id": 2,
+        "Username": "janedoe",
+        "Email": "janedoe@example.com",
+	"PasswordHash": "jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=",
+        "Role": "student",
+        "FirstName": "yulia",
+        "LastName": "narod"	
+    }
+]
