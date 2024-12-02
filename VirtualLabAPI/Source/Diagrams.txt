@@ -5,32 +5,23 @@
       {
         "Name": "Customer",
         "attributes": ["Id", "Name", "Email", "PhoneNumber"],
-        "methods": ["Register", "Login", "Logout"],
-        "relatedClasses": [{"Order": "HasMany"}]
+        "methods": ["Register()", "Login()", "Logout()"],
+        "relatedClasses": [{"Order": "Association"}]
       },
       {
         "Name": "Order",
         "attributes": ["Id", "OrderDate", "TotalAmount"],
-        "methods": ["PlaceOrder", "CancelOrder"],
-        "relatedClasses": [{"Customer": "BelongsTo"}, {"Product": "HasMany"}]
+        "methods": ["PlaceOrder()", "CancelOrder()"],
+        "relatedClasses": [
+          {"Customer": "Association"},
+          {"Product": "Association"}
+        ]
       },
       {
         "Name": "Product",
         "attributes": ["Id", "Name", "Price", "Stock"],
-        "methods": ["AddProduct", "UpdateStock", "RemoveProduct"],
-        "relatedClasses": [{"Order": "HasMany"}]
-      },
-      {
-        "Name": "Category",
-        "attributes": ["Id", "Name"],
-        "methods": ["AddCategory", "RemoveCategory"],
-        "relatedClasses": [{"Product": "HasMany"}]
-      },
-      {
-        "Name": "Supplier",
-        "attributes": ["Id", "Name", "Contact"],
-        "methods": ["AddSupplier", "RemoveSupplier"],
-        "relatedClasses": [{"Product": "Supplies"}]
+        "methods": ["AddProduct()", "UpdateStock()", "RemoveProduct()"],
+        "relatedClasses": [{"Order": "Aggregation"}]
       }
     ]
   },
@@ -40,63 +31,331 @@
       {
         "Name": "Student",
         "attributes": ["Id", "Name", "Email", "Age"],
-        "methods": ["Enroll", "DropCourse"],
-        "relatedClasses": [{"Course": "EnrolledIn"}]
+        "methods": ["Enroll()", "DropCourse()"],
+        "relatedClasses": [{"Course": "Association"}]
       },
       {
         "Name": "Course",
         "attributes": ["Id", "Name", "Credits"],
-        "methods": ["AddCourse", "RemoveCourse"],
-        "relatedClasses": [{"Student": "HasMany"}, {"Instructor": "TaughtBy"}]
+        "methods": ["AddCourse()", "RemoveCourse()"],
+        "relatedClasses": [
+          {"Student": "Association"},
+          {"Instructor": "Association"}
+        ]
       },
       {
         "Name": "Instructor",
         "attributes": ["Id", "Name", "Email", "Specialization"],
-        "methods": ["AssignCourse", "GradeStudent"],
-        "relatedClasses": [{"Course": "HasMany"}]
-      },
-      {
-        "Name": "Department",
-        "attributes": ["Id", "Name"],
-        "methods": ["AddDepartment", "UpdateDepartment"],
-        "relatedClasses": [{"Course": "Offers"}]
-      },
-      {
-        "Name": "Library",
-        "attributes": ["Id", "Name", "Location"],
-        "methods": ["IssueBook", "ReturnBook"],
-        "relatedClasses": [{"Student": "Uses"}]
-      },
-      {
-        "Name": "Book",
-        "attributes": ["Id", "Title", "Author"],
-        "methods": ["AddBook", "RemoveBook"],
-        "relatedClasses": [{"Library": "BelongsTo"}]
+        "methods": ["AssignCourse()", "GradeStudent()"],
+        "relatedClasses": [{"Course": "Association"}]
       }
     ]
   },
   {
     "Id": 3,
     "classes": [
-       {
-      "Name": "Product",
-      "attributes": ["ProductID", "Name", "Price", "Stock"],
-      "methods": ["AddProduct()", "UpdateProduct()", "DeleteProduct()"],
-      "relatedClasses": []
-    },
-    {
-      "Name": "Category",
-      "attributes": [],
-      "methods": [],
-      "relatedClasses": [{"Product": "Composition"}]
-    },
-    {
-      "Name": "Supplier",
-      "attributes": [],
-      "methods": [],
-      "relatedClasses": [{ "Product": "Association"}]
-    }
-   ]
-
+      {
+        "Name": "Book",
+        "attributes": ["Id", "Title", "Author"],
+        "methods": ["AddBook()", "RemoveBook()"],
+        "relatedClasses": [{"Library": "Association"}]
+      },
+      {
+        "Name": "Library",
+        "attributes": ["Id", "Name", "Location"],
+        "methods": ["IssueBook()", "ReturnBook()"],
+        "relatedClasses": [{"Book": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "classes": [
+      {
+        "Name": "User",
+        "attributes": ["UserId", "Name", "Email"],
+        "methods": ["Login()", "Logout()"],
+        "relatedClasses": [{"Role": "Association"}]
+      },
+      {
+        "Name": "Role",
+        "attributes": ["RoleId", "RoleName"],
+        "methods": ["AssignRole()", "RevokeRole()"],
+        "relatedClasses": [{"User": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "classes": [
+      {
+        "Name": "Vehicle",
+        "attributes": ["Id", "Model", "Year"],
+        "methods": ["StartEngine()", "StopEngine()"],
+        "relatedClasses": [{"Engine": "Composition"}]
+      },
+      {
+        "Name": "Engine",
+        "attributes": ["Id", "Type", "HorsePower"],
+        "methods": ["Start()", "Stop()"],
+        "relatedClasses": []
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "classes": [
+      {
+        "Name": "Account",
+        "attributes": ["AccountId", "Balance"],
+        "methods": ["Deposit()", "Withdraw()"],
+        "relatedClasses": [{"Transaction": "Association"}]
+      },
+      {
+        "Name": "Transaction",
+        "attributes": ["TransactionId", "Amount", "Date"],
+        "methods": ["Execute()", "Rollback()"],
+        "relatedClasses": [{"Account": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "classes": [
+      {
+        "Name": "Department",
+        "attributes": ["DepartmentId", "Name"],
+        "methods": ["AddDepartment()", "RemoveDepartment()"],
+        "relatedClasses": [{"Employee": "Aggregation"}]
+      },
+      {
+        "Name": "Employee",
+        "attributes": ["EmployeeId", "Name", "Position"],
+        "methods": ["Work()", "Report()"],
+        "relatedClasses": [{"Department": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "classes": [
+      {
+        "Name": "Company",
+        "attributes": ["CompanyId", "Name", "Location"],
+        "methods": ["HireEmployee()", "FireEmployee()"],
+        "relatedClasses": [{"Employee": "Association"}]
+      },
+      {
+        "Name": "Employee",
+        "attributes": ["EmployeeId", "Name", "Position"],
+        "methods": ["Work()", "Resign()"],
+        "relatedClasses": [{"Company": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 9,
+    "classes": [
+      {
+        "Name": "School",
+        "attributes": ["SchoolId", "Name"],
+        "methods": ["OpenSchool()", "CloseSchool()"],
+        "relatedClasses": [{"Student": "Association"}]
+      },
+      {
+        "Name": "Student",
+        "attributes": ["StudentId", "Name", "Grade"],
+        "methods": ["Study()", "Graduate()"],
+        "relatedClasses": [{"School": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 10,
+    "classes": [
+      {
+        "Name": "Bank",
+        "attributes": ["BankId", "Name"],
+        "methods": ["OpenAccount()", "CloseAccount()"],
+        "relatedClasses": [{"Account": "Aggregation"}]
+      },
+      {
+        "Name": "Account",
+        "attributes": ["AccountId", "Balance"],
+        "methods": ["Deposit()", "Withdraw()"],
+        "relatedClasses": [{"Bank": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 11,
+    "classes": [
+      {
+        "Name": "City",
+        "attributes": ["CityId", "Name"],
+        "methods": ["AddBuilding()", "RemoveBuilding()"],
+        "relatedClasses": [{"Building": "Aggregation"}]
+      },
+      {
+        "Name": "Building",
+        "attributes": ["BuildingId", "Address"],
+        "methods": ["Open()", "Close()"],
+        "relatedClasses": [{"City": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 12,
+    "classes": [
+      {
+        "Name": "Hospital",
+        "attributes": ["HospitalId", "Name"],
+        "methods": ["AdmitPatient()", "DischargePatient()"],
+        "relatedClasses": [{"Patient": "Association"}]
+      },
+      {
+        "Name": "Patient",
+        "attributes": ["PatientId", "Name", "Age"],
+        "methods": ["GetTreatment()", "Recover()"],
+        "relatedClasses": [{"Hospital": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 13,
+    "classes": [
+      {
+        "Name": "Author",
+        "attributes": ["AuthorId", "Name"],
+        "methods": ["WriteBook()", "PublishBook()"],
+        "relatedClasses": [{"Book": "Aggregation"}]
+      },
+      {
+        "Name": "Book",
+        "attributes": ["BookId", "Title", "Genre"],
+        "methods": ["Read()", "Review()"],
+        "relatedClasses": [{"Author": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 14,
+    "classes": [
+      {
+        "Name": "Movie",
+        "attributes": ["MovieId", "Title"],
+        "methods": ["Play()", "Pause()"],
+        "relatedClasses": [{"Director": "Association"}]
+      },
+      {
+        "Name": "Director",
+        "attributes": ["DirectorId", "Name"],
+        "methods": ["DirectMovie()", "EditMovie()"],
+        "relatedClasses": [{"Movie": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 15,
+    "classes": [
+      {
+        "Name": "Team",
+        "attributes": ["TeamId", "Name"],
+        "methods": ["AddPlayer()", "RemovePlayer()"],
+        "relatedClasses": [{"Player": "Aggregation"}]
+      },
+      {
+        "Name": "Player",
+        "attributes": ["PlayerId", "Name", "Position"],
+        "methods": ["Play()", "Train()"],
+        "relatedClasses": [{"Team": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 16,
+    "classes": [
+      {
+        "Name": "Flight",
+        "attributes": ["FlightId", "Origin", "Destination", "Duration"],
+        "methods": ["ScheduleFlight()", "CancelFlight()"],
+        "relatedClasses": [{"Passenger": "Association"}]
+      },
+      {
+        "Name": "Passenger",
+        "attributes": ["PassengerId", "Name", "PassportNumber"],
+        "methods": ["BookFlight()", "CancelBooking()"],
+        "relatedClasses": [{"Flight": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 17,
+    "classes": [
+      {
+        "Name": "University",
+        "attributes": ["UniversityId", "Name", "Location"],
+        "methods": ["AddFaculty()", "RemoveFaculty()"],
+        "relatedClasses": [{"Faculty": "Aggregation"}]
+      },
+      {
+        "Name": "Faculty",
+        "attributes": ["FacultyId", "Name", "Specialization"],
+        "methods": ["Teach()", "ConductResearch()"],
+        "relatedClasses": [{"University": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 18,
+    "classes": [
+      {
+        "Name": "Company",
+        "attributes": ["CompanyId", "Name", "Industry"],
+        "methods": ["AddDepartment()", "RemoveDepartment()"],
+        "relatedClasses": [{"Department": "Aggregation"}]
+      },
+      {
+        "Name": "Department",
+        "attributes": ["DepartmentId", "Name"],
+        "methods": ["ManageBudget()", "HireEmployee()"],
+        "relatedClasses": [{"Company": "Aggregation"}]
+      }
+    ]
+  },
+  {
+    "Id": 19,
+    "classes": [
+      {
+        "Name": "Game",
+        "attributes": ["GameId", "Title", "Genre"],
+        "methods": ["StartGame()", "EndGame()"],
+        "relatedClasses": [{"Player": "Association"}]
+      },
+      {
+        "Name": "Player",
+        "attributes": ["PlayerId", "Name", "Level"],
+        "methods": ["PlayGame()", "SaveProgress()"],
+        "relatedClasses": [{"Game": "Association"}]
+      }
+    ]
+  },
+  {
+    "Id": 20,
+    "classes": [
+      {
+        "Name": "Blog",
+        "attributes": ["BlogId", "Title", "Content"],
+        "methods": ["PublishPost()", "DeletePost()"],
+        "relatedClasses": [{"Author": "Association"}]
+      },
+      {
+        "Name": "Author",
+        "attributes": ["AuthorId", "Name"],
+        "methods": ["WritePost()", "EditPost()"],
+        "relatedClasses": [{"Blog": "Association"}]
+      }
+    ]
   }
 ]
+

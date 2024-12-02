@@ -1,23 +1,142 @@
 [
   {
     "id": 1,
-    "name": "User Diagram",
-    "attributes": ["UserID", "Username", "Email", "Password"],
-    "methods": ["Register()", "Login()", "Logout()"],
-    "classNames": ["User", "Profile", "Authentication"]
+    "name": "Customer Diagram",
+    "attributes": ["Id", "Name", "Email", "PhoneNumber", "OrderId", "OrderDate", "TotalAmount", "ProductId", "Price", "Stock"],
+    "methods": ["Register()", "Login()", "Logout()", "PlaceOrder()", "CancelOrder()", "AddProduct()", "UpdateStock()", "RemoveProduct()"],
+    "classNames": ["Customer", "Order", "Product"]
   },
   {
     "id": 2,
-    "name": "Order Diagram",
-    "attributes": ["OrderID", "CustomerID", "TotalAmount", "OrderDate"],
-    "methods": ["CreateOrder()", "CancelOrder()", "TrackOrder()"],
-    "classNames": ["Order", "Customer", "Invoice"]
+    "name": "Student Diagram",
+    "attributes": ["Id", "Name", "Email", "Age", "CourseId", "Credits", "InstructorId", "Specialization"],
+    "methods": ["Enroll()", "DropCourse()", "AddCourse()", "RemoveCourse()", "AssignCourse()", "GradeStudent()"],
+    "classNames": ["Student", "Course", "Instructor"]
   },
   {
     "id": 3,
-    "name": "Product Diagram",
-    "attributes": ["ProductID", "Name", "Price", "Stock"],
-    "methods": ["AddProduct()", "UpdateProduct()", "DeleteProduct()"],
-    "classNames": ["Product", "Category", "Supplier"]
+    "name": "Library Diagram",
+    "attributes": ["Id", "Title", "Author", "Location", "Name"],
+    "methods": ["AddBook()", "RemoveBook()", "IssueBook()", "ReturnBook()"],
+    "classNames": ["Book", "Library"]
+  },
+  {
+    "id": 4,
+    "name": "User Diagram",
+    "attributes": ["UserId", "Name", "Email", "RoleId", "RoleName"],
+    "methods": ["Login()", "Logout()", "AssignRole()", "RevokeRole()"],
+    "classNames": ["User", "Role"]
+  },
+  {
+    "id": 5,
+    "name": "Vehicle Diagram",
+    "attributes": ["Id", "Model", "Year", "Type", "HorsePower"],
+    "methods": ["StartEngine()", "StopEngine()", "Start()", "Stop()"],
+    "classNames": ["Vehicle", "Engine"]
+  },
+  {
+    "id": 6,
+    "name": "Account Diagram",
+    "attributes": ["AccountId", "Balance", "TransactionId", "Amount", "Date"],
+    "methods": ["Deposit()", "Withdraw()", "Execute()", "Rollback()"],
+    "classNames": ["Account", "Transaction"]
+  },
+  {
+    "id": 7,
+    "name": "Department Diagram",
+    "attributes": ["DepartmentId", "Name", "EmployeeId", "Position"],
+    "methods": ["AddDepartment()", "RemoveDepartment()", "Work()", "Report()"],
+    "classNames": ["Department", "Employee"]
+  },
+  {
+    "id": 8,
+    "name": "Company Diagram",
+    "attributes": ["CompanyId", "Name", "Location", "EmployeeId", "Position"],
+    "methods": ["HireEmployee()", "FireEmployee()", "Work()", "Resign()"],
+    "classNames": ["Company", "Employee"]
+  },
+  {
+    "id": 9,
+    "name": "School Diagram",
+    "attributes": ["SchoolId", "Name", "StudentId", "Grade"],
+    "methods": ["OpenSchool()", "CloseSchool()", "Study()", "Graduate()"],
+    "classNames": ["School", "Student"]
+  },
+  {
+    "id": 10,
+    "name": "Bank Diagram",
+    "attributes": ["BankId", "Name", "AccountId", "Balance"],
+    "methods": ["OpenAccount()", "CloseAccount()", "Deposit()", "Withdraw()"],
+    "classNames": ["Bank", "Account"]
+  },
+  {
+    "id": 11,
+    "name": "City Diagram",
+    "attributes": ["CityId", "Name", "BuildingId", "Address"],
+    "methods": ["AddBuilding()", "RemoveBuilding()", "Open()", "Close()"],
+    "classNames": ["City", "Building"]
+  },
+  {
+    "id": 12,
+    "name": "Hospital Diagram",
+    "attributes": ["HospitalId", "Name", "PatientId", "Age"],
+    "methods": ["AdmitPatient()", "DischargePatient()", "GetTreatment()", "Recover()"],
+    "classNames": ["Hospital", "Patient"]
+  },
+  {
+    "id": 13,
+    "name": "Author Diagram",
+    "attributes": ["AuthorId", "Name", "BookId", "Title", "Genre"],
+    "methods": ["WriteBook()", "PublishBook()", "Read()", "Review()"],
+    "classNames": ["Author", "Book"]
+  },
+  {
+    "id": 14,
+    "name": "Movie Diagram",
+    "attributes": ["MovieId", "Title", "DirectorId", "Name"],
+    "methods": ["Play()", "Pause()", "DirectMovie()", "EditMovie()"],
+    "classNames": ["Movie", "Director"]
+  },
+  {
+    "id": 15,
+    "name": "Team Diagram",
+    "attributes": ["TeamId", "Name", "PlayerId", "Position"],
+    "methods": ["AddPlayer()", "RemovePlayer()", "Play()", "Train()"],
+    "classNames": ["Team", "Player"]
+  },
+  {
+    "id": 16,
+    "name": "Flight Diagram",
+    "attributes": ["FlightId", "Origin", "Destination", "Duration", "PassengerId", "PassportNumber"],
+    "methods": ["ScheduleFlight()", "CancelFlight()", "BookFlight()", "CancelBooking()"],
+    "classNames": ["Flight", "Passenger"]
+  },
+  {
+    "id": 17,
+    "name": "University Diagram",
+    "attributes": ["UniversityId", "Name", "Location", "FacultyId", "Specialization"],
+    "methods": ["AddFaculty()", "RemoveFaculty()", "Teach()", "ConductResearch()"],
+    "classNames": ["University", "Faculty"]
+  },
+  {
+    "id": 18,
+    "name": "Company Department Diagram",
+    "attributes": ["CompanyId", "Name", "Industry", "DepartmentId"],
+    "methods": ["AddDepartment()", "RemoveDepartment()", "ManageBudget()", "HireEmployee()"],
+    "classNames": ["Company", "Department"]
+  },
+  {
+    "id": 19,
+    "name": "Game Diagram",
+    "attributes": ["GameId", "Title", "Genre", "PlayerId", "Level"],
+    "methods": ["StartGame()", "EndGame()", "PlayGame()", "SaveProgress()"],
+    "classNames": ["Game", "Player"]
+  },
+  {
+    "id": 20,
+    "name": "Blog Diagram",
+    "attributes": ["BlogId", "Title", "Content", "AuthorId", "Name"],
+    "methods": ["PublishPost()", "DeletePost()", "WritePost()", "EditPost()"],
+    "classNames": ["Blog", "Author"]
   }
 ]
