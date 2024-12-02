@@ -20,12 +20,16 @@ namespace VirtualLabAPI.Handler
         {
 
             List<Assignement> tasks = FileHandler<Assignement>.ReadFromFile(FilePath2);
-            var task = tasks?.Find(t => t.Id == diagramId);
+            var task = tasks?.Find(t => t.diagramId == diagramId);
             //
             int maxGrade = task.MaxGrade;
             int per = maxGrade / num;
             int result = maxGrade - per * Errornum;
             Console.WriteLine(result);
+            if(result <= 0)
+            {
+                result = 0;
+            }
             return result;
         }
 

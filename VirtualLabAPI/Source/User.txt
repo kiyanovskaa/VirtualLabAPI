@@ -9,12 +9,12 @@
     "LastName": "pussy"	
   },
   {
-        "Id": 2,
-        "Username": "janedoe",
-        "Email": "janedoe@example.com",
+    "Id": 2,
+    "Username": "janedoe",
+    "Email": "janedoe@example.com",
 	"PasswordHash": "jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=",
-        "Role": "student",
-        "FirstName": "yulia",
-        "LastName": "narod"	
-    }
+    "Role": "student",
+    "FirstName": "yulia",
+    "LastName": "narod"	
+  }
 ]

@@ -49,7 +49,7 @@
     "MaxGrade": 100,
     "StudentId": 3,
     "Comment": "Excellent content and structure.",
-    "diagramId": 4
+    "diagramId": 1
   },
   {
     "Id": 5,
@@ -62,7 +62,7 @@
     "MaxGrade": 100,
     "StudentId": 3,
     "Comment": "Solid plan, but include more details in the timeline.",
-    "diagramId": 5
+    "diagramId": 2
   },
   {
     "Id": 6,
@@ -73,9 +73,9 @@
     "DurationTime": 30,
     "Grade": 0,
     "MaxGrade": 20,
-    "StudentId": 3,
+    "StudentId": 1,
     "Comment": "",
-    "diagramId": 6
+    "diagramId": 3
   },
   {
     "Id": 7,
@@ -86,9 +86,9 @@
     "DurationTime": 45,
     "Grade": 40,
     "MaxGrade": 50,
-    "StudentId": 3,
+    "StudentId": 2,
     "Comment": "Great effort! Watch out for calculation errors.",
-    "diagramId": 7
+    "diagramId": 1
   },
   {
     "Id": 8,
@@ -99,8 +99,8 @@
     "DurationTime": 30,
     "Grade": 0,
     "MaxGrade": 10,
-    "StudentId": 3,
+    "StudentId": 1,
     "Comment": "",
-    "diagramId": 8
+    "diagramId": 2
   }
 ]
