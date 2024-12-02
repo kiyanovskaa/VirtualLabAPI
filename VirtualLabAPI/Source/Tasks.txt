@@ -32,7 +32,7 @@
     "isDone": true,
     "Deadline": "2024-11-30T20:00:00",
     "DurationTime": 90,
-    "Grade": 40,
+    "Grade": 50,
     "MaxGrade": 50,
     "StudentId": 3,
     "Comment": "",
