@@ -16,11 +16,11 @@ namespace VirtualLabAPI.Handler
         }
 
 
-        public static int CalculateStudentGrade(int Errornum, int diagramId, int num)
+        public static int CalculateStudentGrade(int Errornum, int taskId, int num)
         {
 
             List<Assignement> tasks = FileHandler<Assignement>.ReadFromFile(FilePath2);
-            var task = tasks?.Find(t => t.diagramId == diagramId);
+            var task = tasks?.Find(t => t.Id == taskId);
             //
             int maxGrade = task.MaxGrade;
             int per = maxGrade / num;
@@ -122,7 +122,7 @@ namespace VirtualLabAPI.Handler
                     }
                 }
 
-                int res = CalculateStudentGrade(Errors, diagram.Id, num);
+                int res = CalculateStudentGrade(Errors, TaskId, num);
                 TaskHandler.UpdateTask(res, TaskId);
                 return res;
             }
