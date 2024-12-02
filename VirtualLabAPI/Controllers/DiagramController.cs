@@ -20,9 +20,8 @@ namespace VirtualLabAPI.Controllers
             var gradingHandler = new GradingHandler();
             Attach(gradingHandler);
         }
-        
-        [HttpPost]
-        public IActionResult CreateDiagram([FromBody] Diagram diagram)
+        [HttpPost("{id}")]
+        public IActionResult CreateDiagram(int id, [FromBody] Diagram diagram)
         {
             if (diagram == null)
             {
