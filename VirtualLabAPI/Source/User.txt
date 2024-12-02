@@ -16,5 +16,14 @@
     "Role": "student",
     "FirstName": "yulia",
     "LastName": "narod"	
+  },
+  {
+    "Id": 3,
+    "Username": "iLoveDiagrams",
+    "Email": "iLoveDiagrams@example.com",
+    "PasswordHash": "A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=",
+    "Role": "student",
+    "FirstName": "nastia",
+    "LastName": "blin"	
   }
 ]

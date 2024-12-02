@@ -88,17 +88,13 @@
       "Name": "Category",
       "attributes": [],
       "methods": [],
-      "relatedClasses": [
-        {
-          "Product": "Composition"
-        }
-      ]
+      "relatedClasses": [{"Product": "Composition"}]
     },
     {
       "Name": "Supplier",
       "attributes": [],
       "methods": [],
-      "relatedClasses": [{ "Product": "Supplies"}]
+      "relatedClasses": [{ "Product": "Association"}]
     }
    ]
 
