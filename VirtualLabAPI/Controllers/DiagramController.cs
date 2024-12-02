@@ -31,7 +31,7 @@ namespace VirtualLabAPI.Controllers
             try
             {
              
-                Notify(diagram);
+                Notify(diagram, id);
                 
                // int istrue = GradingHandler.Evaluate(diagram.classes, diagram.Id);
 
@@ -57,11 +57,11 @@ namespace VirtualLabAPI.Controllers
             this._observers.Remove(observer);
         }
       
-        private void Notify(Diagram diagram)
+        private void Notify(Diagram diagram, int taskId)
         {
             foreach (var observer in _observers)
             {
-                observer.Update(diagram);
+                observer.Update(diagram, taskId);
             }
 
         }

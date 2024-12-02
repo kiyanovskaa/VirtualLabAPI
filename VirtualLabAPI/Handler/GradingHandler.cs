@@ -33,7 +33,7 @@ namespace VirtualLabAPI.Handler
             return result;
         }
 
-        public int Update(Diagram diagFromStudent)
+        public int Update(Diagram diagFromStudent, int TaskId)
         {
             try
             {
@@ -123,7 +123,7 @@ namespace VirtualLabAPI.Handler
                 }
 
                 int res = CalculateStudentGrade(Errors, diagram.Id, num);
-                TaskHandler.UpdateTask(res, diagram.Id);
+                TaskHandler.UpdateTask(res, TaskId);
                 return res;
             }
             catch (Exception ex)

@@ -6,6 +6,6 @@ namespace VirtualLabAPI.Handler
 {
     public interface IGradingHandler
     {
-        int Update(Diagram subject);
+        int Update(Diagram subject, int TaskId);
     }
 }
