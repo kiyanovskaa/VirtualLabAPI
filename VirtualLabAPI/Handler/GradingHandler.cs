@@ -72,7 +72,7 @@ namespace VirtualLabAPI.Handler
                     {
                         if (cl == null || foundClassStudent == null) return 0;
 
-                        if (cl.Name != foundClassStudent.Name || cl.attributes.OrderBy(attr => attr).SequenceEqual(foundClassStudent.attributes.OrderBy(attr => attr)) || cl.methods.OrderBy(method => method).SequenceEqual(foundClassStudent.methods.OrderBy(method => method)))
+                        if (cl.Name != foundClassStudent.Name || !cl.attributes.OrderBy(attr => attr).SequenceEqual(foundClassStudent.attributes.OrderBy(attr => attr)) || !cl.methods.OrderBy(method => method).SequenceEqual(foundClassStudent.methods.OrderBy(method => method)))
                         {
                             // Дії, якщо хоч одне з полів відрізняється
                             Errors++;
